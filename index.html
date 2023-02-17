@@ -1,10 +1,59 @@
 
 <!-- @media
 
-@media asocia un grupo de declaraciones anidadas, en un bloque CSS delimitado por llaves, con una condición definida por un media query. (una Las consultas de medios le permiten adaptar su sitio o aplicación dependiendo de la presencia o el valor de varias características y parámetros del dispositivo.) _La regla-at @media puede ser usada no solo en el nivel superior de la hoja de estilos, sino también dentro de cualquier grupo de reglas condicionales.
+@media asocia un grupo de declaraciones anidadas, en un bloque CSS delimitado por llaves, con una condición definida por un media query. (una Las consultas de medios le permiten adaptar su sitio o aplicación dependiendo de la presencia o el valor de varias características y parámetros del dispositivo, en otras palabras lo que busca es realizar un responsive-desing) La regla-at @media puede ser usada no solo en el nivel superior de la hoja de estilos, sino también dentro de cualquier grupo de reglas condicionales por lo que su ubicación no representará un problema.
 
-las @media tienen una característica de medios que verifica una característica específica del navegador o dispositivo. por ejemplo el width trabaja  	Anchura del viewport, resolution la densidad de pixeles del dispositivo.
+las @media tienen una característica de medios que verifica una característica específica del navegador o dispositivo. por ejemplo el width trabaja  	Anchura del viewport, resolution la densidad de pixeles del dispositivo. Logrando que dependiendo de las especificidades del dispositivo se muestren de la manera más adecuada.
+
+Ejemplo: 
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    body { line-height: 1.4 }
+}
+Aquí podemos ver como media permite configarar el responsive dependiendo del dispositivo o navegador y sus especificaciones.
 
 
-Unidades relativas: 
+
+
+Unidades relativas: Todas las propiedades que se utilizan en CSS tienen un valor o un conjunto de valores que esa propiedad admite.
+Cuando esté presente el valor <color (puede ser cualquier valor)> es válido para una propiedad en particular, significa que para esa propiedad se puede usar como valor cualquier color válido de entre los que se enumeran en la página de referencia de la propiedad <color>.
+
+Un valor en CSS es una forma de definir una colección de subvalores admitidos. Esto significa que si ves <color> como válido, no necesitas preguntarte cuáles de los diferentes tipos de valor de color puedes usar: palabras clave, valores hexadecimales, funciones rgb(), etc. Puedes usar cualquier valor <color> disponible siempre que tu navegador lo admita. 
+
+en css hay varios tipos de datos numéricos, <integer> es un número entero, <number> representa un número decimal, <dimension> es un <number> con una unidad asociada, por ejemplo: 45deg (grados), 5s (segundos) o 10px (píxeles). <dimension> es una categoría general que incluye los tipos <length>, <angle>, <time> y <resolution>, <percentage> representa una fracción de algún otro valor, los valores de porcentaje siempre son relativos a otra cantidad.
+
+También existen longitudes: el tipo numérico mas frecuente son los <length>, en css se manejas 2 TIPOS DE LONGITUDES DIFERENTES. Es importante conocer la diferencia para entender qué dimensiones van a tener las cosas.
+
+    Unidades de longitud absoluta: Todas las unidades siguientes son unidades de longitud absoluta: no son relativas a nada más y en general se considera que siempre tienen el mismo tamaño. Centímetros (cm), Milímetros (mm), Cuartos de milímetros (Q), Pulgadas (in), Picas (pc), Puntos (pt), Píxeles (px).
+        La mayoría de estos valores son más útiles cuando se usan en una salida en formato impreso que en la salida de pantalla, cuando no se necesita realizar responsive desing.
+
+    Unidades de longitud relativa: Las unidades de longitud relativa son relativas a algo más, por ejemplo, al tamaño de letra del elemento principal o al tamaño de la ventana gráfica. La ventaja de usar unidades relativas es que con una planificación cuidadosa puedes lograr que el tamaño del texto u otros elementos escalen en relación con todo lo demás en la página. 
+        - em (Tamaño de letra del elemento padre, en el caso de propiedades tipográficas como font-size, y tamaño de la fuente del propio elemento en el caso de otras propiedades, como width.)
+        - ex (Altura x de la fuente del elemento.)
+        - ch (La medida de avance (ancho) del glifo "0" de la letra del elemento.)
+        - rem (Tamaño de la letra del elemento raíz.)
+        - lh (Altura de la línea del elemento.)
+        - vw (1% del ancho de la ventana gráfica.)
+        - vh (1% de la altura de la ventana gráfica.)
+        - vmin (1% de la dimensión más pequeña de la ventana gráfica.)
+        - vmax (1% de la dimensión más grande de la ventana gráfica.)
+    Lo ideal es usar unidades relativas si se espera conseguir un diseño responsiva con diferentes dispositivos
+
+    *em y rem son las dos longitudes relativas que es probable que encuentres con mayor frecuencia al cambiar el tamaño de cualquier cosa, de cajas a texto.*
+
+        La unidad em significa «el tamaño de letra de mi elemento padre». Los elementos <li> dentro de un elemento <ul> con una clase de ems toman el tamaño con respecto a su elemento padre. Por lo tanto, en cada nivel de anidamiento sucesivo, el tamaño de letra aumenta progresivamente, porque en cada uno el tamaño de letra está establecido en 1.3em (1,3 veces el tamaño de letra de su elemento padre).
+        
+        la unidad rem significa «el tamaño de letra del elemento raíz». ('rem' viene de «root em»). Los elementos <li> dentro de un elemento <ul> con una clase de rems toman su tamaño del elemento raíz (<html>). Esto significa que el tamaño de letra no aumenta en cada nivel sucesivo de anidamiento.
+
+            IMPORTANTE: Sin embargo, si cambias el atributo font-size de <html> en el CSS, verás que todo lo demás cambia en relación con él, tanto la letra cuyo tamaño está especificado en unidades rem como la que lo está en unidades em.
+
+    
+    Porcentajes: En muchos casos, un porcentaje es tratado de la misma manera que una longitud. Lo que sucede con los porcentajes es que siempre se establecen en relación con otro valor. Por ejemplo, si estableces el atributo font-size de un elemento como un porcentaje, será un porcentaje del font-size del elemento padre. Si usas un porcentaje para un valor width, será un porcentaje del atributo width del elemento padre. 
+            -> en resumen el % es una herramienta útil pero es importante permanecer pendiente de los elementos padres donde estoy estalbeciendo el dicho %.
+
+    
+        --> 
+
 -->
