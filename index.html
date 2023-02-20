@@ -1,5 +1,5 @@
 
-<!-- @media
+<!-------------------------------------- @media -------------------------------------------!->
 
 @media asocia un grupo de declaraciones anidadas, en un bloque CSS delimitado por llaves, con una condición definida por un media query. (una Las consultas de medios le permiten adaptar su sitio o aplicación dependiendo de la presencia o el valor de varias características y parámetros del dispositivo, en otras palabras lo que busca es realizar un responsive-desing) La regla-at @media puede ser usada no solo en el nivel superior de la hoja de estilos, sino también dentro de cualquier grupo de reglas condicionales por lo que su ubicación no representará un problema.
 
@@ -16,14 +16,17 @@ Aquí podemos ver como media permite configarar el responsive dependiendo del di
 
 
 
-
-Unidades relativas: Todas las propiedades que se utilizan en CSS tienen un valor o un conjunto de valores que esa propiedad admite.
+    Estudio personal acerca de valores en CSS
+Todas las propiedades que se utilizan en CSS tienen un valor o un conjunto de valores que esa propiedad admite.
 Cuando esté presente el valor <color (puede ser cualquier valor)> es válido para una propiedad en particular, significa que para esa propiedad se puede usar como valor cualquier color válido de entre los que se enumeran en la página de referencia de la propiedad <color>.
 
 Un valor en CSS es una forma de definir una colección de subvalores admitidos. Esto significa que si ves <color> como válido, no necesitas preguntarte cuáles de los diferentes tipos de valor de color puedes usar: palabras clave, valores hexadecimales, funciones rgb(), etc. Puedes usar cualquier valor <color> disponible siempre que tu navegador lo admita. 
 
 en css hay varios tipos de datos numéricos, <integer> es un número entero, <number> representa un número decimal, <dimension> es un <number> con una unidad asociada, por ejemplo: 45deg (grados), 5s (segundos) o 10px (píxeles). <dimension> es una categoría general que incluye los tipos <length>, <angle>, <time> y <resolution>, <percentage> representa una fracción de algún otro valor, los valores de porcentaje siempre son relativos a otra cantidad.
 
+
+<------------------------------------------- Unidades relativas ------------------------------------!->    
+    Unidades relativas y absolutas: 
 También existen longitudes: el tipo numérico mas frecuente son los <length>, en css se manejas 2 TIPOS DE LONGITUDES DIFERENTES. Es importante conocer la diferencia para entender qué dimensiones van a tener las cosas.
 
     Unidades de longitud absoluta: Todas las unidades siguientes son unidades de longitud absoluta: no son relativas a nada más y en general se considera que siempre tienen el mismo tamaño. Centímetros (cm), Milímetros (mm), Cuartos de milímetros (Q), Pulgadas (in), Picas (pc), Puntos (pt), Píxeles (px).
@@ -53,7 +56,111 @@ También existen longitudes: el tipo numérico mas frecuente son los <length>, e
     Porcentajes: En muchos casos, un porcentaje es tratado de la misma manera que una longitud. Lo que sucede con los porcentajes es que siempre se establecen en relación con otro valor. Por ejemplo, si estableces el atributo font-size de un elemento como un porcentaje, será un porcentaje del font-size del elemento padre. Si usas un porcentaje para un valor width, será un porcentaje del atributo width del elemento padre. 
             -> en resumen el % es una herramienta útil pero es importante permanecer pendiente de los elementos padres donde estoy estalbeciendo el dicho %.
 
-    
-        --> 
+<---------------------------------------------- FLEXBOX ----------------------------------------------------!->
+ 
+FLEXBOX: El Módulo de Caja Flexible, comúnmente llamado flexbox, fue diseñado como un modelo unidimensional de layout, y como un método que pueda ayudar a distribuir el espacio entre los ítems de una interfaz y mejorar las capacidades de alineación.
 
--->
+Cuando trabajamos con flexbox necesitamos pensar en términos de dos ejes — el eje principal y el eje cruzado. El eje principal está definido por la propiedad flex-direction, y el eje cruzado es perpendicular a este. Todo lo que hacemos con flexbox está referido a estos dos ejes.
+
+    El eje principal: El eje principal está definido por flex-direction, que posee cuatro posibles valores:    
+        row
+        row-reverse 
+        -> Si elegimos row o row-reverse, el eje principal correrá a lo largo de la fila según la dirección de la línea .
+        column
+        column-reverse
+        -> Al elegir column o column-reverse el eje principal correrá desde el borde superior de la página hasta el final — según la dirección del bloque.
+
+    El eje cruzado: El eje cruzado va perpendicular al eje principal, y por lo tanto si flex-direction (del eje principal) es row o row-reverse el eje cruzado irá por las columnas, si el eje principal es column o column-reverse entonces el eje cruzado corre a lo largo de las filas.
+
+    Flexbox posee propiedades que permiten alinear y justificar el contenido sobre un eje o el otro.
+
+    Un área del documento que contiene un flexbox es llamada contendedor flex. Para crear un contenedor flex, establecemos la propiedad del área del contenedor display como flex o inline-flex. Tan pronto como hacemos esto, los hijos directos de este contenedor se vuelven ítems flex. Como con todas las propiedades de CSS, se definen algunos valores iniciales, así que cuando creemos un contenedor flex todos los ítems flex contenidos se comportarán de la siguiente manera.
+
+       - Los ítems se despliegan sobre una fila (la propiedad flex-direction por defecto es row).
+       - Los ítems empiezan desde el margen inicial sobre el eje principal.
+       - Los ítems no se ajustan en la dimensión principal, pero se pueden contraer.
+       - Los ítems se ajustarán para llenar el tamaño del eje cruzado.
+       - La propiedad flex-basis es definida como auto.
+       - La propiedad flex-wrap es definida como nowrap.
+
+    la propiedad flex-direction en el contenedor flex nos permite cambiar la dirección de cómo los ítems son desplegados. 
+
+    Propiedadad Flex-grow:
+        Con la propiedad flex-grow definida como un entero positivo, los ítems flex pueden crecer en el eje principal a partir de flex-basis. Esto hará que el ítem se ajuste y tome todo el espacio disponible del eje, o una proporción del espacio disponible si otro ítem también puede crecer.
+
+        Si le damos a todos los ítems del ejemplo anterior un valor flex-grow de 1 entonces el espacio disponible en el contenedor flex será compartido igualitariamente entre estos ítems y se ajustarán para llenar el contenedor sobre el eje principal.
+
+        Podemos usar flex-grow apropiadamente para distribuir el espacio en proporciones. Si otorgamos al primer ítem un valor flex-grow de 2 y a los otros un valor de 1, entonces 2 partes serán dadas al primer ítem (100px de 200px en el caso del ejemplo de arriba) y 1 parte para cada uno de los restantes (cada uno con 50px de los 200px en total).
+    
+    Propiedad flex-shrink
+        Así como la propiedad flex-grow se encarga de añadir espacio sobre el eje principal, la propiedad flex-shrink controla como se contrae. Si no contamos con suficiente espacio en el contenedor para colocar los ítems y flex-shrink posee un valor entero positivo, el ítem puede contraerse a partir de flex-basis. Así como podemos asignar diferentes valores de flex-grow con el fin que un ítem se expanda más rápido que otros — un ítem con un valor más alto de flex-shrink se contraerá más rápido que sus hermanos que poseen valores menores.
+
+        El tamaño mínimo del ítem tendrá que ser considerado cuando se determine un valor de contracción que pueda funcionar
+
+    La propiedad align-items alineará los ítems sobre el eje cruzado. El valor inicial para esta propiedad es stretch razón por la cual los ítems se ajustan por defecto a la altura de aquel más alto.
+
+        stretch
+        flex-start
+        flex-end
+        center
+
+    La propiedad justify-content es usada para alinear los ítems en el eje principal, cuyo flex-direction define la dirección del flujo. El valor inicial es flex-start que alineará los ítems al inicio del margen del contenedor, pero también se podría definir como flex-end para alinearlos al final, o center para alinearlos al centro.
+
+    También podemos usar space-between para tomar todo el espacio sobrante después de que los ítems hayan sido colocados:
+
+        space-evenly
+        flex-start
+        flex-end
+        center
+        space-around
+        space-between
+
+
+
+<---------------------------------------------------- GRID ----------------------------------------!->
+
+CSS Grid layout contiene funciones de diseño dirigidas a los desarrolladores de aplicaciones web. El CSS grid se puede utilizar para lograr muchos diseños diferentes. También se destaca por permitir dividir una página en áreas o regiones principales, por definir la relación en términos de tamaño, posición y capas entre partes de un control construido a partir de primitivas HTML.
+
+Al igual que las tablas, el grid layout permite a un autor alinear elementos en columnas y filas. Sin embargo, con CSS grid son posibles muchos más diseños y de forma más sencilla que con las tablas. Por ejemplo, los elementos secundarios de un contenedor de cuadrícula podrían posicionarse para que se solapen y se superpongan, de forma similar a los elementos posicionados en CSS.
+
+propiedades de grid: 
+    grid-template-columns:
+        define el nombre de las líneas y las funciones de tamaño de línea de grid columns.
+            - none: Es una palabra clave que significa que no hay una cuadrícula explícita. Cualquier columna será generada implicitamente y su tamaño sera determinado por la propiedad grid-auto-columns.
+
+    grid-template-rows            
+        La propiedad CSS grid-template-rows define el nombre de las líneas y las funciones de tamaño de línea de grid rows.
+
+                se usa así: grid-template-rows: 40px 4em 40px;
+
+    grid-template-areas
+         especifica nombres para cada una de las grid areas. Estas áreas no están asociadas a ningún elemento particular de la cuadrícula, pero pueden referenciarse desde otras propiedades de posicionamiento en la cuadrícula: grid-row-start, grid-row-end, grid-column-star, grid-column-end, y sus formas abreviadas grid-row, grid-column, and grid-area.
+
+    grid-template     
+        La propiedad CSS grid-template es una propiedad abreviada para definir columnas de cuadrícula, filas de cuadrícula y regiones de cuadrícula.
+         
+    grid-auto-columns
+        especifíca el tamaño de una columna de cuadrícula creada implícitamente
+
+    grid-auto-rows
+        especifíca el tamaño de una nueva fila creada de forma implícita.
+
+    grid-auto-flow
+        La propiedad controla cómo funciona el algoritmo de colocación automática, especificando exactamente cómo los elementos colocados automáticamente fluyen hacia la cuadrícula.
+
+    grid
+        La propiedad CSS grid es un shorthand que permite definir todas las propiedades grid explícitas (grid-template-rows, grid-template-columns, y grid-template-areas), implícitas (grid-auto-rows, grid-auto-columns, y grid-auto-flow), y relativas a gutter (grid-column-gap y grid-row-gap) en una sola declaración.
+
+    grid-row-start 
+    grid-column-start 
+    grid-row-end 
+    grid-column-end 
+    grid-row 
+    grid-column 
+    grid-area: grid-area: 1 / 4 / 6 / 5;
+    row-gap: ancho entre las filas
+    column-gap: Es el ancho del canal que separa las columnas de la grilla
+    gap:  especifica los canales entre las filas y las columnas de la cuadrícula.
+     -->
+
+
